@@ -12,3 +12,18 @@
 .markdown-body code { color:#a8ddfc; }
 .equation-panel.markdown-body { text-align:left; }
 .equation-panel.markdown-body h2,.equation-panel.markdown-body h3 { text-align:center; }
+
+/* Full-width homepage title */
+.hero-content {
+  width: 100%;
+  max-width: none;
+}
+
+.hero h1 {
+  width: 100%;
+  max-width: none;
+  font-size: clamp(2.5rem, 5vw, 5.5rem);
+  line-height: 1.12;
+  overflow-wrap: normal;
+}
+

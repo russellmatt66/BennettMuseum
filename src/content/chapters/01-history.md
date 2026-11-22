@@ -9,8 +9,8 @@ mediaCaption: "GE exposition, historical pinch apparatus, or period footage"
 mediaIcon: "⌁"
 ---
 
-## Exhibit notes
+## However, they were wrong!
 
-**CONTENT PLACEHOLDER** — Introduce the Z-pinch, the GE exposition, and the historical public understanding of fusion. Insert verified archival images and source attributions here.
+**Plasma had other ideas** — The Z-pinch may have been the simplest possible magnetic confinement fusion configuration (MCF) that promised an economical approach to the task without needing applied magnetic fields, but it was prey to virulent fundamental magnetohydrodynamic (MHD) modes that limited lifetimes to nanoseconds (ns).
 
 [Why did it fail? →](#instability)
