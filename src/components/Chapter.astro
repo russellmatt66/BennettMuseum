@@ -1,0 +1,14 @@
+---
+const { id, number, eyebrow, title, summary, reverse = false } = Astro.props;
+---
+<section id={id} class:list={['chapter', { reverse }]} aria-labelledby={`${id}-title`}>
+  <div class="chapter-inner">
+    <div class="chapter-copy">
+      <p class="eyebrow"><span>{number} / 07</span> — {eyebrow}</p>
+      <h2 id={`${id}-title`}>{title}</h2>
+      <p class="lead">{summary}</p>
+      <slot name="body" />
+    </div>
+    <div class="chapter-media"><slot name="media"><div class="placeholder"><span class="placeholder-icon">✳</span><strong>VISUAL PLACEHOLDER</strong><small>Replace with historical imagery, diagram, or interactive simulation.</small></div></slot></div>
+  </div>
+</section>

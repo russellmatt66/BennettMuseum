@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Chapter from '../components/Chapter.astro';
+import VelocityChart from '../components/VelocityChart.astro';
+import { getCollection, render } from 'astro:content';
+
+const entries = (await getCollection('chapters'))
+  .sort((a, b) => a.data.number.localeCompare(b.data.number));
+
+const chapters = await Promise.all(
+  entries.map(async (entry) => ({
+    data: entry.data,
+    Content: (await render(entry)).Content
+  }))
+);
+---
+<BaseLayout title="Bennett Vortices | From the Z-Pinch to Analytic Equilibrium">
+  <section id="top" class="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-content">
+      <p class="eyebrow">AN INTERACTIVE EXHIBITION IN PLASMA PHYSICS</p>
+      <h1>From the <em>Z-Pinch</em><br />to Bennett Vortices<span class="period">.</span></h1>
+      <p class="hero-subtitle">A journey through the promise of magnetic confinement, the problem of plasma instability, and the mathematical structure of shear-flow equilibria.</p>
+      <a class="primary-link" href="#history">Begin the exhibition <span>↘</span></a>
+    </div>
+    <div class="hero-decoration" aria-hidden="true"><div class="ring ring-one"></div><div class="ring ring-two"></div><div class="ring ring-three"></div><div class="axis"></div></div>
+    <div class="hero-bottom"><span>SCROLL TO EXPLORE</span><span>01 — 07 CHAPTERS</span></div>
+  </section>
+  {chapters.map(({ data: c, Content }) => {
+    
+    if (c.id === 'vortices') return <section id="vortices" class="feature-section" aria-labelledby="vortex-heading">
+      <div class="feature-intro"><p class="eyebrow">04 / 07 — {c.eyebrow}</p><h2 id="vortex-heading">{c.title}</h2><p class="lead">{c.summary}</p></div>
+      <div class="equation-panel markdown-body"><Content /></div>
+      <VelocityChart />
+    </section>;
+    return <Chapter id={c.id} number={c.number} eyebrow={c.eyebrow} title={c.title} summary={c.summary}>
+      <div slot="body" class="markdown-body"><Content /></div>
+      <div slot="media" class:list={['placeholder', {historical:c.id==='history'}]}><span class="placeholder-icon">{c.mediaIcon}</span><strong>{c.mediaTitle}</strong><small>{c.mediaCaption}</small></div>
+    </Chapter>;
+  })}
+</BaseLayout>

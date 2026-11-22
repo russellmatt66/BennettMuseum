@@ -1,0 +1,34 @@
+<div class="chart-shell">
+  <div class="chart-top"><div><p class="eyebrow">LIVE MATHEMATICAL MODEL</p><h3>Axial velocity & radial shear</h3></div><span class="live-pill">● INTERACTIVE</span></div>
+  <svg id="profile-chart" viewBox="0 0 680 340" role="img" aria-label="Interactive plot of normalized axial velocity and its radial derivative" preserveAspectRatio="xMidYMid meet">
+    <g class="grid-lines" stroke="#273649" stroke-width="1">
+      <line x1="58" y1="25" x2="650" y2="25"/><line x1="58" y1="93" x2="650" y2="93"/><line x1="58" y1="161" x2="650" y2="161"/><line x1="58" y1="229" x2="650" y2="229"/><line x1="58" y1="297" x2="650" y2="297"/>
+      <line x1="58" y1="25" x2="58" y2="297"/><line x1="206" y1="25" x2="206" y2="297"/><line x1="354" y1="25" x2="354" y2="297"/><line x1="502" y1="25" x2="502" y2="297"/><line x1="650" y1="25" x2="650" y2="297"/>
+    </g>
+    <g fill="#92a4bb" font-size="12" font-family="system-ui"><text x="37" y="301">0</text><text x="24" y="233">0.25</text><text x="30" y="165">0.5</text><text x="24" y="97">0.75</text><text x="37" y="29">1</text><text x="54" y="318">0</text><text x="202" y="318">1.5</text><text x="350" y="318">3</text><text x="498" y="318">4.5</text><text x="645" y="318">6</text><text x="346" y="337">r (normalized)</text></g>
+    <path id="velocity-line" fill="none" stroke="#6ac4ff" stroke-width="3" stroke-linejoin="round"/><path id="shear-line" fill="none" stroke="#e9b975" stroke-width="3" stroke-linejoin="round"/>
+  </svg>
+  <div class="legend"><span><i class="legend-blue"></i>u<sub>z</sub>(r)</span><span><i class="legend-gold"></i>du<sub>z</sub>/dr</span></div>
+  <div class="controls"><label for="c-slider">Scale parameter C <output id="c-value">1.00</output></label><input id="c-slider" type="range" min="0.3" max="2.5" step="0.05" value="1" /><label for="u-slider">Velocity amplitude u₀ <output id="u-value">1.00</output></label><input id="u-slider" type="range" min="0.2" max="1" step="0.05" value="1" /></div>
+  <p class="chart-note">Illustrative normalized profiles. Axes share the same numeric scale; physical units and stability conclusions require the full model assumptions.</p>
+</div>
+<script>
+  import { sampleProfiles } from '../lib/physics.js';
+  const cSlider = document.querySelector('#c-slider');
+  const uSlider = document.querySelector('#u-slider');
+  const pathV = document.querySelector('#velocity-line');
+  const pathS = document.querySelector('#shear-line');
+  function draw() {
+    if (!(cSlider instanceof HTMLInputElement) || !(uSlider instanceof HTMLInputElement)) return;
+    const C = Number(cSlider.value), u0 = Number(uSlider.value);
+    document.querySelector('#c-value').textContent = C.toFixed(2);
+    document.querySelector('#u-value').textContent = u0.toFixed(2);
+    const points = sampleProfiles(C, u0);
+    const line = key => points.map((p,i) => `${i ? 'L' : 'M'}${(58 + p.r / 6 * 592).toFixed(2)},${(297 - p[key] * 272).toFixed(2)}`).join(' ');
+    pathV?.setAttribute('d', line('velocity'));
+    pathS?.setAttribute('d', line('shear'));
+  }
+  cSlider?.addEventListener('input', draw);
+  uSlider?.addEventListener('input', draw);
+  draw();
+</script>

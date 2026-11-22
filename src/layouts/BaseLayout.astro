@@ -1,0 +1,51 @@
+---
+import '../styles/global.css';
+import 'katex/dist/katex.min.css';
+import Navigation from '../components/Navigation.astro';
+const { title = 'Bennett Vortices', description = 'An interactive scientific exposition of Z-pinch physics and Bennett vortices.' } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={description} />
+  <meta name="theme-color" content="#080e18" />
+  <title>{title}</title>
+</head>
+<body>
+  <Navigation />
+  <main><slot /></main>
+  <footer class="footer"><span>BENNETT VORTICES · RESEARCH EXPOSITION</span><a href="#top">Back to top ↑</a><span>Draft website · Sources and attributions forthcoming</span></footer>
+  <script>
+    const progress = document.getElementById('progress-fill');
+    const updateProgress = () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      if (progress) progress.style.width = `${max > 0 ? window.scrollY / max * 100 : 0}%`;
+    };
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    window.addEventListener('resize', updateProgress);
+    updateProgress();
+    const toggle = document.getElementById('menu-toggle');
+    const mobile = document.getElementById('mobile-menu');
+    toggle?.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') !== 'true';
+      toggle.setAttribute('aria-expanded', String(open));
+      if (mobile) mobile.hidden = !open;
+    });
+    mobile?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      mobile.hidden = true;
+      toggle?.setAttribute('aria-expanded', 'false');
+    }));
+    const links = document.querySelectorAll('.site-header nav a');
+    const sections = document.querySelectorAll('section[id]');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        links.forEach(a => a.classList.toggle('active', a.hash === `#${entry.target.id}`));
+      });
+    }, { rootMargin: '-35% 0px -55% 0px' });
+    sections.forEach(section => observer.observe(section));
+  </script>
+</body>
+</html>

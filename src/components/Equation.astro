@@ -1,0 +1,6 @@
+---
+import katex from 'katex';
+const { tex, display = true } = Astro.props;
+const html = katex.renderToString(tex, { displayMode: display, throwOnError: false, output: 'html' });
+---
+<div class:list={['equation', { inline: !display }]} set:html={html} />
