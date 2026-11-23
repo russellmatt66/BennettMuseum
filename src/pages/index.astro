@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Chapter from '../components/Chapter.astro';
 import VelocityChart from '../components/VelocityChart.astro';
 import { getCollection, render } from 'astro:content';
+import SlideDeck from '../components/SlideDeck.astro';
 
 const entries = (await getCollection('chapters'))
   .sort((a, b) => a.data.number.localeCompare(b.data.number));
@@ -19,7 +20,7 @@ const chapters = await Promise.all(
     <div class="hero-glow"></div>
     <div class="hero-content">
       <p class="eyebrow">AN INTERACTIVE DIGITAL EXHIBIT IN PLASMA PHYSICS</p>
-      <h1>From the <em>Z-Pinch</em>to shear-flow stabilized  <br />
+      <h1>From the <em>Z-Pinch</em> to shear-flow stabilized  <br />
       Bennett-Shumlak-Hartman Vortices<span class="period">.</span></h1>
       <p class="hero-subtitle">A journey through the early history of magnetic fusion energy (MFE), the problem of plasma instability, and the mathematical structure of a Kadomtsev stable, shear-flow stabilized Z-pinch equilibrium.</p>
       <a class="primary-link" href="#history">Begin the exhibition <span>↘</span></a>
@@ -28,15 +29,39 @@ const chapters = await Promise.all(
     <div class="hero-bottom"><span>SCROLL TO EXPLORE</span><span>01 — 07 CHAPTERS</span></div>
   </section>
   {chapters.map(({ data: c, Content }) => {
-    
-    if (c.id === 'vortices') return <section id="vortices" class="feature-section" aria-labelledby="vortex-heading">
-      <div class="feature-intro"><p class="eyebrow">04 / 07 — {c.eyebrow}</p><h2 id="vortex-heading">{c.title}</h2><p class="lead">{c.summary}</p></div>
-      <div class="equation-panel markdown-body"><Content /></div>
-      <VelocityChart />
-    </section>;
+         
+    if (c.id === 'vortices') return (
+      <section
+        id="vortices"
+        class="feature-section"
+        aria-labelledby="vortex-heading"
+      >
+        <div class="feature-intro">
+          <p class="eyebrow">04 / 07 — {c.eyebrow}</p>
+          <h2 id="vortex-heading">{c.title}</h2>
+          <p class="lead">{c.summary}</p>
+        </div>
+
+        <div class="equation-panel markdown-body">
+          <Content />
+        </div>
+
+        <SlideDeck
+          slides={c.mediaSlides ?? []}
+          title="Bennett Vortices: Analytic Solutions"
+        />
+
+        <VelocityChart />
+      </section>
+    );
     return <Chapter id={c.id} number={c.number} eyebrow={c.eyebrow} title={c.title} summary={c.summary}>
       <div slot="body" class="markdown-body"><Content /></div>
-      <div slot="media" class:list={['placeholder', {historical:c.id==='history'}]}><span class="placeholder-icon">{c.mediaIcon}</span><strong>{c.mediaTitle}</strong><small>{c.mediaCaption}</small></div>
+      <div slot="media">
+        <SlideDeck
+          slides={c.mediaSlides ?? []}
+          title={`${c.title} exhibit gallery`}
+        />
+      </div>
     </Chapter>;
   })}
 </BaseLayout>

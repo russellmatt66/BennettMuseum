@@ -1,9 +1,9 @@
 ---
 id: "stability"
 number: "05"
-eyebrow: "THE STABILITY CONNECTION"
-title: "Two stability ideas, one framework."
-summary: "Explore the relationship between the Kadomtsev $m=0$ criterion and the stabilizing role of axial velocity shear."
+eyebrow: "The Kadomtsev Connection and Shear-flow stabilization"
+title: ""
+summary: ""
 mediaTitle: "STABILITY CRITERIA"
 mediaCaption: "Future equation-by-equation interactive derivation"
 mediaIcon: "∂"

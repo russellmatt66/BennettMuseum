@@ -15,7 +15,16 @@ const chapters = defineCollection({
     summary: z.string(),
     mediaIcon: z.string().optional(),
     mediaTitle: z.string().optional(),
-    mediaCaption: z.string().optional()
+    mediaCaption: z.string().optional(),
+    mediaSlides: z.array(
+      z.object({
+        src: z.string(),
+        title: z.string().optional(),
+        caption: z.string().optional(),
+        alt: z.string().optional(),
+        credit: z.string().optional()
+      })
+    ).optional(),
   })
 });
 
