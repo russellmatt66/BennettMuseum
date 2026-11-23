@@ -38,7 +38,7 @@ and with a power-law temperature profile,
 $$
 T(r) = \frac{T_{p}}{r_{p}^{n}}r^{n}
 $$
-it can be shown that $n > 2$ gives a sufficiently enhanched thermodynamic gradient for this flow to be shear-flow stabilized.
+it can be shown that $n > 2$ gives a sufficiently enhanced thermodynamic gradient for this flow to be shear-flow stabilized.
 
 
 Inserting the minimum thermal energy shear-flow stabilized state, $n = 3$, leads to 
