@@ -3,7 +3,7 @@ id: "evidence"
 number: "06"
 eyebrow: "QUANTITATIVE COMPARISON"
 title: "What do the experiments show?"
-summary: "Theory becomes more useful when its profiles can be compared quantitatively with measured plasma behavior."
+summary: "Physics needs to meet with experiment to test its validity"
 mediaTitle: "EXPERIMENTAL COMPARISONS"
 mediaCaption: "Future selectable data overlays and fit diagnostics"
 mediaIcon: "⌁"
@@ -44,9 +44,32 @@ mediaSlides:
     credit: https://github.com/russellmatt66/Bennett-Vorticity/blob/main/cubic/zap_2009/zap2009_sawtoothchain.py
 ---
 
-## Exhibit notes
+## Modelling real world systems with an idealized physics
 
-**CONTENT PLACEHOLDER** — Add Zap sawtooth, MAST, DIII-D, and BELLA comparisons. Present original data, fitted curves, uncertainties, parameter selection, and error metrics with source citations.
+**Solving the equilibrium** — on real world data requires extending the model to include a non-zero flow at the core of the device. Without it the model treats the problem as rising from stagnation when in reality experimental systems show shear layers that transition between smaller and larger flows / current densities / intensities. 
+
+To solve the equilibrium we have to study the boundary conditions,
+$$
+\begin{aligned}
+  u_{z}(0) &= u_{0} \\
+  u_{z}(r_{p}) &= u_{edge}
+\end{aligned}
+$$
+The mathematical function we are considering is,
+$$
+\begin{aligned}
+  u_{z}(r) = u_{0} \pm u_{z,0}\frac{r^{2}}{(r + C)^{2}}
+\end{aligned}
+$$
+which leads to the following fourth-order algebraic equation when we consider the edge of the plasma / magnetohydrodynamic fluid system,
+$$
+\begin{aligned}
+	&r_{p}^{2}\bigg(u_{edge} - u_{0} \mp u_{z,0}\bigg) + \\
+	&\qquad (u_{edge} - u_{0})C_{u}u_{z,0}^{2}\bigg(C_{u}u_{z,0}^{2} + 2r_{p}\bigg) = 0 \\
+	C &= C_{u}u_{z,0}^{2}
+\end{aligned}
+$$
+The roots of this equation are the physical $u_{z,0}$. They exist because the roots of fourth-order algebraic systems have a closed-form, and we can use existing mathematical libraries like Python's **numpy** to obtain them. That is what is done in this section 
 
 ## Edge Pedestal
 
