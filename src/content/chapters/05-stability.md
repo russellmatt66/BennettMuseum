@@ -7,6 +7,11 @@ summary: "By linking the drift flow supporting the plasma current density with t
 mediaTitle: "STABILITY CRITERIA"
 mediaCaption: "Future equation-by-equation interactive derivation"
 mediaIcon: "∂"
+mediaSlides:
+  - src: /public/images/stability/normalized_profiles.png
+    title: Normalized equilibrium profiles
+    caption: Plots of the equilibrium profiles in a normalized basis using a normalized coordinate, $\phi = \frac{r}{C}$.
+    credit: https://github.com/russellmatt66/Bennett-Vorticity/blob/main/cubic/basic_properties/cubic_equilibrium.py
 ---
 
 ## Solving the equilibrium
