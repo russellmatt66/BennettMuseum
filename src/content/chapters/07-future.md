@@ -52,6 +52,10 @@ I am actively seeking:
 - High-performance computing resources for numerical stability studies.
 - Employment opportunities that would allow this research to continue.
 
-If you are a scientist, research institution, funding organization, or individual interested in advancing this work, I would welcome the opportunity to speak with you. [My Linkedin](https://www.linkedin.com/in/russell-matt/)
+If you are a scientist, research institution, funding organization, or individual interested in advancing this work, I would welcome the opportunity to speak with you. 
+
+[My Linkedin](https://www.linkedin.com/in/russell-matt/)
+
+[My Ko-fi](https://ko-fi.com/russellmatt66)
 
 The objective is to bring this research into an environment where its scientific and technological implications can be fully investigated.
