@@ -20,7 +20,7 @@ mediaSlides:
 
   - src: /public/images/history/GE_progressland.jpg
     title: General Electric's Fusion Exposition
-    caption: Historical exhibition at the Progressland event introducing the promise of controlled fusion using theta-pinches. 
+    caption: Historical exhibition at the Progressland event introducing the promise of controlled fusion using theta-pinches which are a cousin of the Z-pinch based on an azimuthal current and an axial magnetic field instead of vice-versa. 
     credit: https://www.reddit.com/r/RetroFuturism/comments/xk1dls/nuclear_fusion_demonstration_at_ges_progressland/#lightbox
 ---
 
