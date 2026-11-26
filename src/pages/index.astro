@@ -57,10 +57,12 @@ const chapters = await Promise.all(
     return <Chapter id={c.id} number={c.number} eyebrow={c.eyebrow} title={c.title} summary={c.summary}>
       <div slot="body" class="markdown-body"><Content /></div>
       <div slot="media">
-        <SlideDeck
-          slides={c.mediaSlides ?? []}
-          title={`${c.title} exhibit gallery`}
-        />
+        {c.showGallery !== false && (
+          <SlideDeck
+            slides={c.mediaSlides ?? []}
+            title={`${c.title} exhibit gallery`}
+          />
+        )}
       </div>
     </Chapter>;
   })}

@@ -22,7 +22,8 @@ const chapters = defineCollection({
         title: z.string().optional(),
         caption: z.string().optional(),
         alt: z.string().optional(),
-        credit: z.string().optional()
+        credit: z.string().optional(),
+        showGallery: z.boolean().default(true)
       })
     ).optional(),
   })

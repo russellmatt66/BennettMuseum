@@ -69,15 +69,103 @@ $$
 	C &= C_{u}u_{z,0}^{2}
 \end{aligned}
 $$
-The roots of this equation are the physical $u_{z,0}$. They exist because the roots of fourth-order algebraic systems have a closed-form, and we can use existing mathematical libraries like Python's **numpy** to obtain them. That is what is done in this section 
+The roots of this equation are the physical $u_{z,0}$. They exist because the roots of fourth-order algebraic systems have a closed-form, and we can use existing mathematical libraries like Python's **numpy** to obtain them. That is what is done in this section, and the results are presented. The code for producing these results can be found in the caption of the respective figures.
+
+To evaluate the accuracies, two different metrics are used. The first is range-normalized relative root mean square error (RNRRMSE),
+$$
+\begin{aligned}
+RNRRMSE &= \frac{1}{max(\hat{J}_{\phi}) - min(\hat{J}_{\phi})}RRMSE(J, \hat{J}_{\phi}) \\
+RRMSE &= \sqrt{\frac{1}{N}\sum_{i=1}^{N}(\hat{J}_{i} - J_{i})^{2}}
+\end{aligned}
+$$
+and $R^{2}$,
+$$
+\begin{aligned}
+R^{2} &= 1 - \frac{SS_{res}}{SS_{tot}} \\
+SS_{res} &= \sum_{i=1}^{N} (y_{i} - \hat{y}_{i})^{2} \\
+SS_{tot} &= \sum_{i=1}^{N}(y_{i}-\bar{y})^{2}
+\end{aligned}
+$$
+The former is used to evaluate all of the applications except the laser-driven shock in a water microjet.
 
 ## Edge Pedestal
+The edge pedestal is a confinement barrier that appears in tokamaks, a toroidal magnetic fusion energy concept, in the presence of an enhanced thermodynamic gradient. This equilibrium is both a confinement barrier, and one that appears in the presence of an enhanced thermodynamic gradient. Therefore, despite its cylindrical nature and idealized structure it is a test of the physics to see if it produces accurate solutions to this experimental system. 
+
+MAST
+
+A parameter sweep of the MAST edge pedestal across the span $n_{0} \in [10^{19}, 10^{20}] \ \mathrm{m^{-3}}$, $T_{p} \in [200, 300] \ \mathrm{eV}$ with $N = 25*25$ total value-pairs swept through is performed and shown in the figures to the right. Every band represents a solution obtained from the analytic model here with less than $10\%$ range-normalized relative root mean square error. The front region is to the right of the connection point, and the wake is to the left. The average core pressure of the wake solutions is calculated to be $<p_{0}> = 2.997 \ [\mathrm{kPa}]$ with a standard deviation, $ 2.481 [\mathrm{kPa}]$, and median $2.362 \ [\mathrm{kPa}]$.
+
+DIII-D
+
+The figures show a parameter sweep of the DIII-D edge pedestal across the span $n_{0} \in [10^{19}, 10^{20}] \ \mathrm{m^{-3}}$, $T_{p} \in [200, 700] \ \mathrm{eV}$ with $N = 25*25$ total value-pairs swept through. Every band represents a solution obtained from the analytic model here with less than $20\%$ range-normalized relative root mean square error. The front region is to the right of the connection point, and the wake is to the left. 
+
+The plateau is also swept over so that every point within a tolerance of the maximum intensity is used in this process. 
 
 ## Air Plasma Streamer Head
+To model the intensity of an air plasma streamer head, a linear discharge model is assumed to relate the observed intensity with the plasma current density,
+$$
+I_{z} = \alpha J_{z}
+$$
+This pits the nonlinear structure of the physics against the nonlinear structure of the experimental observations. If they do not match then this usage of a proportionality constant will not make them.
+
+| Region    | Root | RNRRMSE (%) |
+|:----------|:----:|------------:|
+| Wake      | 3    | 21.34       |
+| Wake      | 4    | 10.21       |
+| Front     | 3    | 14.94       |
+| Front     | 4    | 19.56       |
+| Needletip | 4    | 8.46        |
+
+*Table: Air plasma streamer head roots that satisfy the boundary conditions with real roots, along with their accuracy metric.*
 
 ## Laser-driven Shock in a Water Microjet
+The same linear discharge model is employed here as was emplyed in the study of the air plasma streamer head.
+
+| ibase | ir | Mean ($R^{2}$) | Median ($R^{2}$) | Stdev ($R^{2}$) | $N$ | $N_{.95}$ |
+|:-----:|:--:|:--------------:|:----------------:|:---------------:|:---:|:---------:|
+| 2     | 0  | 0.973          | 0.973            | 0.0001          | 625 | 625       |
+
+*Table: Statistics for the most accurate coarse base sweep performed, which is shown in the accompanying figure. Two other pairs of base and edge points, $(2,1)$ and $(2,2)$, had every $R^{2}$ value above 0.95 as well, but they are not shown.*
+
+<!-- $$
+\begin{table}
+	\centering
+	\caption{Statistics for the most accurate coarse base sweep performed which is shown in Figure (\ref{fig:bella_basesweep_fig14}). Two other pairs of base and edge points, $(2,1)$ and $(2,2)$ had every $R^{2}$ value above 0.95 as well, but they are not shown.}
+	\label{tab:bella_basesweep}
+	\small
+	\begin{tabular}{lcccccc}
+		\hline
+		ibase &
+		ir & 
+		mean($R^{2}$) & 
+		median($R^{2}$) &
+		stdev($R^{2}$) & 
+		N &
+		$N_{.95}$ \\
+		\hline
+		2 & 0 & 0.973 & 0.973 & 0.0001 & 625 & 625 \\
+		\hline
+	\end{tabular}
+\end{table}
+$$ -->
 
 ## Zap Shear-flow Stabilized Z-pinch Plasmas
+
+**Zap 2001**
+
+Single vortex solutions to the axial velocity profile from the 2001 Zap DD fusion plasma experiment are shown. Each pinch is calculated in the uncorrelated pinch basis, and the pinch midpoint is chosen as the connection point between the two. The flow roots for each vortex are complex-valued, $u_{z,0R} = 1.19027\times 10^{5} + j3.30410\times 10^{5} \ \mathrm{m/s}$ for the vortex on the right-hand side, and $u_{z,0L} = -1.19027\times 10^{5} + j3.30410\times 10^{5} \ \mathrm{m/s}$ for the left-hand side. The peak shear of the profiles is the same on both sides $S_{\mathrm{peak},+} = S_{\mathrm{peak},-} = 3.352\times 10^{6} \ [\mathrm{s^{-1}}]$. The peak shear obtained from amongst all the roots is $S_{\mathrm{peak}} = 1.4\times 10^{7} \ \mathrm{s^{-1}}$. The thermal lifetime is calculated to be $13.029 \ \mathrm{\mu s}$ for the negative vortex on the left, and $20.754 \ \mathrm{\mu s}$ for the positive vortex on the right
+
+**Zap 2009** 
+
+| $\tau$ ($\mu$s) | Root 1 (%) | Root 2 (%) | Root 3 (%) | Root 4 (%) |
+|----------------:|-----------:|-----------:|-----------:|-----------:|
+| 29.60           | 2.46       | 2.46       | **1.41**   | 4.93       |
+| 38.40           | 4.68       | 4.68       | **3.28**   | 11.10      |
+| 41.04           | 7.34       | 7.34       | **4.58**   | 15.81      |
+| 48.96           | 4.65       | 4.65       | **3.43**   | 11.46      |
+| 58.64           | 10.37      | 10.37      | **5.92**   | 20.61      |
+
+*Table: Average RRMSE across all reconstructed segments for each root of the equilibrium at five experimental time points. The most accurate root at each time point is highlighted in bold.*
 
 ## Sources
 [MAST edge pedestal](https://doi.org/10.1088/1361-6587/acd478)
@@ -86,8 +174,8 @@ The roots of this equation are the physical $u_{z,0}$. They exist because the ro
 
 [Air plasma streamer head](https://arxiv.org/abs/2106.00409)
 
-[Laser-driven shock in a water microjet]()
+[Laser-driven shock in a water microjet](https://www.nature.com/articles/s41467-025-67224-3)
 
-[Zap 2001]()
+[Zap 2001](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.87.205005)
 
-[Zap 2009]()
+[Zap 2009](https://iopscience.iop.org/article/10.1088/0029-5515/49/7/075039)
