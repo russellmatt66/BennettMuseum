@@ -8,12 +8,12 @@ mediaTitle: "SHEARED-FLOW VISUALIZATION"
 mediaCaption: "Future radial velocity field and perturbation animation"
 mediaIcon: "⇢"
 mediaSlides:
-  - src: /public/images/shear-flow-stabilization/bbkadomtsev.jpg
+  - src: /images/shear-flow-stabilization/bbkadomtsev.jpg
     title: Boris Borisovich Kadomtsev
     caption: Boris Borisovich Kadomtsev contemplating answers to deep questions in nonlinear plasma physics 
     credit: https://en.wikipedia.org/wiki/Boris_Kadomtsev#/media/File:RIAN_archive_151311_Russian_physicist_Boris_Kadomtsev.jpg
   
-  - src: /public/images/shear-flow-stabilization/shumlak.jpg
+  - src: /images/shear-flow-stabilization/shumlak.jpg
     title: Uri Shumlak
     caption: The Jewish-American physicist Uri Shumlak, one of the pioneers of the shear-flow stabilization criterion, the scientific brains behind Kerbal Space Program, and probably the second best known Aggie behind Johnny Manziel
     credit: https://bpb-us-e1.wpmucdn.com/sites.uw.edu/dist/f/10876/files/2021/02/UriOut-square-1.jpg

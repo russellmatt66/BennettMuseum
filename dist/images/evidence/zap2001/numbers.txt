@@ -1,0 +1,98 @@
+Roots of the chi=2 flow boundary condition polynomial: 
+[ 
+119027.39558932+330410.23930634j  
+119027.39558932-330410.23930634j
+ -155995.58206848     +0.j          
+ -82059.20911015     +0.j        
+ ]
+ 
+Roots of the chi=2 flow boundary condition polynomial: 
+[
+-119027.39558932+330410.23930634j 
+-119027.39558932-330410.23930634j
+  155995.58206848     +0.j           
+  82059.20911015     +0.j        
+  ]
+  
+cbt for uz0 = 351195.73906761035 m/s: 0.031040551243412054 m
+cbt for uz0 = 351195.73906761035 m/s: 0.031040551243412054 m
+cbt for uz0 = 155995.5820684797 m/s: 0.006124287171245731 m
+cbt for uz0 = 82059.20911015013 m/s: 0.0016946718003079053 m
+
+RRMSEpos_all = 
+[
+np.float64(0.24948476589812504), 
+np.float64(0.24948476589812504), 
+np.float64(0.44186631047710967), np.float64(0.4679277314863573)
+]
+
+RRMSEpos = 
+[
+np.float64(0.027737766252711685), 
+np.float64(0.027737766252711685), 
+np.float64(0.21958784215357566), np.float64(0.30391333192589504)
+]
+
+RRMSEneg_all = 
+[
+np.float64(0.19999406725618096), 
+np.float64(0.19999406725618096), 
+np.float64(0.2551726193687718), 
+np.float64(0.3632383421591624)
+]
+
+RRMSEneg = 
+[
+np.float64(0.16675377296803667), 
+np.float64(0.16675377296803667), 
+np.float64(0.28788935550626216), np.float64(0.4105244667047205)
+]
+
+uz0p = (119027.39558931509+330410.2393063353j), uz0n = (-119027.39558931509+330410.2393063353j)
+  tauE (positive) = 2.0753810676795505e-05 s
+  tauE (negative) = 1.3029432000134887e-05 s
+  tauE / tauA (positive) = 321.5150616571872 
+  tauE / tauA (negative) = 159.9348472455132 
+  Peak shear (positive) = 3352324.3818957102 s^-1
+  Peak shear (negative) = 3352324.3818957102 s^-1
+ Bmax (positive) = 0.44932307140029604 T
+ Bmax (negative) = 0.3560187435001236 T
+ p0 (positive) = 45967300.7486563 Pa
+ p0 (negative) = 45967231.38072766 Pa
+ 
+uz0p = (119027.39558931509-330410.2393063353j), uz0n = (-119027.39558931509-330410.2393063353j)
+  tauE (positive) = 2.0753810676795505e-05 s
+  tauE (negative) = 1.3029432000134887e-05 s
+  tauE / tauA (positive) = 321.5150616571872 
+  tauE / tauA (negative) = 159.9348472455132 
+  Peak shear (positive) = 3352324.3818957102 s^-1
+  Peak shear (negative) = 3352324.3818957102 s^-1
+ Bmax (positive) = 0.44932307140029604 T
+ Bmax (negative) = 0.3560187435001236 T
+ p0 (positive) = 45967300.7486563 Pa
+ p0 (negative) = 45967231.38072766 Pa
+ 
+uz0p = (-155995.5820684797+0j), uz0n = (155995.5820684797+0j)
+  tauE (positive) = 1.993296354410311e-06 s
+  tauE (negative) = 3.4623097782458525e-07 s
+  tauE / tauA (positive) = 39.05355223734515 
+  tauE / tauA (negative) = 2.8301960242243167 
+  Peak shear (positive) = 7547149.882599928 s^-1
+  Peak shear (negative) = 7547149.882599928 s^-1
+ Bmax (positive) = 0.5682558522225672 T
+ Bmax (negative) = 0.2370859626778523 T
+ p0 (positive) = 2760276.752844852 Pa
+ p0 (negative) = 2754373.487521175 Pa
+ 
+uz0p = (-82059.20911015013+0j), uz0n = (82059.20911015013+0j)
+  tauE (positive) = 2.4460825718620817e-07 s
+  tauE (negative) = 1.880407924996475e-08 s
+  tauE / tauA (positive) = 5.084370432811793 
+  tauE / tauA (negative) = 0.13127088519020244 
+  Peak shear (positive) = 14347226.248718597 s^-1
+  Peak shear (negative) = 14347226.248718597 s^-1
+ Bmax (positive) = 0.6028667308932766 T
+ Bmax (negative) = 0.202475084007143 T
+ p0 (positive) = 300951.88413884613 Pa
+ p0 (negative) = 205105.58513134348 Pa
+

@@ -9,10 +9,9 @@ mediaCaption: "Roadmap, simulations, references, and collaboration links"
 mediaIcon: "✧"
 showGallery: true
 mediaSlides:
-  - src: /public/images/frontier/cheesin.jpeg
+  - src: /images/frontier/cheesin.jpeg
     title: A picture of myself, the researcher behind this work
     caption: And I need your support
-
 ---
 
 ## Next steps for the research

@@ -8,17 +8,17 @@ mediaTitle: "ARCHIVAL IMAGE / FILM"
 mediaCaption: "GE exposition, historical pinch apparatus, or period footage"
 mediaIcon: "⌁"
 mediaSlides:
-  - src: /public/images/history/ZETA.jpg
+  - src: /images/history/ZETA.jpg
     title: The ZETA experiment 
     caption: Early Z-pinch experiment performed by UK researchers that briefly raised hopes for fusion before it was clarified that most of the neutrons were produced by non-thermal processes rather than thermonuclear fusion
     credit: https://www.energyencyclopedia.com/en/nuclear-fusion/history/pinch#ee-section-zeta
   
-  - src: /public/images/history/perhapsatron.jpg
+  - src: /images/history/perhapsatron.jpg
     title: The Perhapsatron
     caption: The invention of James Tuck at Los Alamos. One of the earliest Z-pinch experiments that revealed the severe nature of the plasma instabilities to the configuration.
     credit: Sandpiper/Wikipedia.org
 
-  - src: /public/images/history/GE_progressland.jpg
+  - src: /images/history/GE_progressland.jpg
     title: General Electric's Fusion Exposition
     caption: Historical exhibition at the Progressland event introducing the promise of controlled fusion using theta-pinches which are a cousin of the Z-pinch based on an azimuthal current and an axial magnetic field instead of vice-versa. 
     credit: https://www.reddit.com/r/RetroFuturism/comments/xk1dls/nuclear_fusion_demonstration_at_ges_progressland/#lightbox

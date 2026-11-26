@@ -8,7 +8,7 @@ mediaTitle: "SAUSAGE / KINK ANIMATION"
 mediaCaption: "Future interactive cylindrical deformation visualizer"
 mediaIcon: "〰"
 mediaSlides:
-  - src: /public/images/instability/sausage_and_kink.png
+  - src: /images/instability/sausage_and_kink.png
     title: Picture of the sausage and kink modes
     caption: Diagram of the sausage and kink modes showing the mechanism behind the destabilization of a pure Z-pinch plasma. By itself the plasma remains stable, but if the magnetic field at any point becomes perturbed the difference in magnetic pressures leads to the plasma column quickly becoming pinched off.
     credit: https://www.researchgate.net/figure/The-m-0-sausage-mode-and-the-m-1-kink-mode-MHD-instabilities-in-a-Z-pinch_fig3_234903836

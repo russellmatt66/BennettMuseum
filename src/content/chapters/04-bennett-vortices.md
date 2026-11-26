@@ -8,7 +8,7 @@ mediaTitle: "INTERACTIVE VELOCITY PROFILES"
 mediaCaption: "Live demonstration included below"
 mediaIcon: "∂"
 mediaSlides:
-  - src: /public/images/vortices/willard_bennett.jpg
+  - src: /images/vortices/willard_bennett.jpg
     title: Willard H. Bennett
     caption: Willard Bennett thinking about one of the many advances in physics, and chemistry that he contributed to. 
     credit: https://www.invent.org/sites/default/files/styles/inductee_media/public/inductees/12-master_0.jpg?h=754009f3
