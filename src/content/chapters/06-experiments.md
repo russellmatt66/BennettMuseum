@@ -33,6 +33,11 @@ mediaSlides:
     caption: The code that this is produced from sweeps over the base and plateau points, and then sweeps over the edge velocities of the experiment based on the uncertainty in experimental expansion velocity. This is the most accurate sweep created from this procedure with an average R^{2} > 0.973.
     credit: https://github.com/russellmatt66/Bennett-Vorticity/blob/main/cubic/microvortex_2025/bellabasesweep.py
 
+  - src: /images/evidence/watermicrojet/sweep/Figure_0.png
+    title: Analytic solutions to a laser-driven shock in a water microjet
+    caption: The code that this is produced from sweeps over plateau points based on a threshold, and then sweeps over the edge velocities of the experiment based on the uncertainty in experimental expansion velocity to create the analytic equilibrium solutions. 
+    credit: https://github.com/russellmatt66/Bennett-Vorticity/blob/main/cubic/microvortex_2025/bellasweep.py
+
   - src: /images/evidence/zap2001/Root1_rp10mm_n04e21_Tp200eV_u0100kms.png
     title: Analytic solution to a shear-flow stabilized Z-pinch plasma
     caption: What is particularly interesting about this solution using experimental data from a 2001 shear-flow stabilized Z-pinch experiment is that it is based on a flow velocity root which is complex. Because of this the solution fails to localize the shear correctly so that outside of the interior of the plasma the accuracy of the idealized solution disappears. Yet inside there is evidently a very close match in the subtle structure of the profile. 

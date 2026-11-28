@@ -14,6 +14,12 @@ const chapters = await Promise.all(
     Content: (await render(entry)).Content
   }))
 );
+
+const evidenceChapter = chapters.find(
+  ({ data }) => data.id === 'evidence'
+);
+
+const evidenceSlides = evidenceChapter?.data.mediaSlides ?? [];
 ---
 <BaseLayout title="Bennett Vortices | From the Z-Pinch to Analytic Equilibrium">
   <section id="top" class="hero">
@@ -23,11 +29,44 @@ const chapters = await Promise.all(
       <h1>From the <em>Z-Pinch</em> to shear-flow stabilized  <br />
       Bennett-Shumlak-Hartman Vortices<span class="period">.</span></h1>
       <p class="hero-subtitle">A journey through the early history of magnetic fusion energy (MFE), the problem of plasma instability, and the mathematical structure of a Kadomtsev stable, shear-flow stabilized Z-pinch equilibrium.</p>
-      <a class="primary-link" href="#history">Begin the exhibition <span>↘</span></a>
+      <div class="hero-links">
+        <a class="primary-link" href="#history">
+          Begin the exhibition <span>↘</span>
+        </a>
+
+        <a class="primary-link" href="#intro-evidence">
+          View quantitative results <span>↘</span>
+        </a>
+      </div>    
     </div>
     <div class="hero-decoration" aria-hidden="true"><div class="ring ring-one"></div><div class="ring ring-two"></div><div class="ring ring-three"></div><div class="axis"></div></div>
     <div class="hero-bottom"><span>SCROLL TO EXPLORE</span><span>01 — 07 CHAPTERS</span></div>
   </section>
+
+  <section id="intro-evidence" class="feature-section">
+    <div class="feature-intro">
+      <p class="eyebrow">EXPERIMENTAL HIGHLIGHTS</p>
+
+      <h2>Quantitative Experimental Results </h2>
+
+      <p class="lead">
+        Solving this equilibrium produces solutions which quantitatively reconstruct experimental systems spanning
+        shear-flow stabilized Z-pinches, tokamak pedestals,
+        atmospheric plasma streamers, and laser-driven
+        water microjets with a high degree of accuracy.
+      </p>
+    </div>
+
+    <SlideDeck
+      slides={evidenceSlides}
+      title="Bennett Vortices: Quantitative Experimental Results"
+    />
+
+    <a class="primary-link" href="#evidence">
+      Explore the experimental evidence <span>↘</span>
+    </a>
+  </section>
+
   {chapters.map(({ data: c, Content }) => {
          
     if (c.id === 'vortices') return (
@@ -67,3 +106,25 @@ const chapters = await Promise.all(
     </Chapter>;
   })}
 </BaseLayout>
+
+<style>
+  .hero-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.25rem;
+  }
+  #intro-evidence .feature-intro {
+  width: 100%;
+  max-width: none;
+  }
+
+  #intro-evidence h2 {
+    font-size: clamp(1.8rem, 3vw, 3rem);
+    line-height: 1.15;
+    max-width: none;
+    letter-spacing: -0.025em;
+    margin-bottom: 1rem;
+    text-wrap: balance;
+  }
+</style>
